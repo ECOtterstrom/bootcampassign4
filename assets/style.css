@@ -18,28 +18,6 @@ body {
     margin-left: 20px;
 }
 
-.contact-info {
-    border: 10px solid darksalmon;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 50px;
-    height: 75%;
-    font-family: 'Baloo Chettan 2', 'Baloo 2', 'Poppins', cursive, sans-serif;
-    background-color: lightsalmon;
-    color: #ffffff;
-}
-
-.portfolio-info {
-        border: 10px solid darksalmon;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        padding: 50px;
-        height: 75%;
-        font-family: 'Baloo Chettan 2', 'Baloo 2', 'Poppins', cursive, sans-serif;
-        background-color: lightsalmon;
-        color: #ffffff;
-}
-
 .about-info {
     border: 10px solid darksalmon;
     margin-top: 20px;
@@ -50,6 +28,27 @@ body {
     background-color: lightsalmon;
     color: #ffffff;
 }
+
+.slide{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+
+  .active-slide{
+    opacity: 1;
+    z-index: 2;
+  }
+
+  .quiz-container{
+    position: relative;
+    height: 200px;
+    margin-top: 40px;
+  }
 
 .footer {
     padding: 30px;

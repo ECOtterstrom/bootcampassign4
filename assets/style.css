@@ -6,27 +6,22 @@
 
 
 body {
-    background-image: url('../images/geometric-leaves.png');
+    background-image: url('../assets/dynamic-style.png');
     /* background-color: lightgrey; */
     /* font-family:'Montserrat', sans-serif; */
     font-family: 'Baloo Chettan 2', 'Baloo 2', 'Poppins', cursive, sans-serif;
 }
 
-.content {
+/* .content {
     width: 75%;
     display: inline-block;
     margin-left: 20px;
-}
+} */
 
-.about-info {
-    border: 10px solid darksalmon;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding:50px;
-    height: 75%;
-    font-family: 'Baloo Chettan 2', 'Baloo 2', 'Poppins', cursive, sans-serif;
-    background-color: lightsalmon;
-    color: #ffffff;
+.jumbotron{
+    background-color: rgb(131, 191, 199);
+    border-style: solid;
+    border-radius: black, 10px;
 }
 
 .slide{
@@ -46,10 +41,26 @@ body {
 
   .quiz-container{
     position: relative;
-    height: 200px;
-    margin-top: 40px;
+    height: 250px;
+    margin-top: 10px;
   }
 
+  .question{
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+
+  .answers {
+    margin-bottom: 20px;
+    text-align: left;
+    display: inline-block;
+  }
+  
+  .answers label{
+    display: block;
+    margin-bottom: 10px;
+  }
+ 
 .footer {
     padding: 30px;
     clear: both;

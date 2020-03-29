@@ -14,10 +14,10 @@ const myQuestions = [
     {
       question: "In JavaScript, what is a series of instructions, also known as statements, that a computer can follow one by one?",
       answers: {
-        a: "A comment",
-        b: "A method",
-        c: "A script",
-        d: "A function"
+        a:"A comment",
+        b:"A method",
+        c:"A script",
+        d:"A function" 
       },
       correctAnswer: "c"
     },
@@ -177,4 +177,6 @@ showSlide(currentSlide);
 
 // on submit, show results
 submitButton.addEventListener('click', showResults);
+previousButton.addEventListener("click", showPreviousSlide);
+nextButton.addEventListener("click", showNextSlide);
 

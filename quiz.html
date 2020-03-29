@@ -11,21 +11,23 @@
   <link href="https://fonts.googleapis.com/css?family=Baloo+2|Baloo+Chettan+2|Poppins&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/style.css">
   <title>JavaScript Quiz</title>
+
 </head>
+
 <Body>
-<Header>
-  <div class="container">
-    <div class="container">
-      <div class="jumbotron">
-        <h1>JavaScript Quiz</h1>      
-        <p>Welcome to the JavaScript Quiz!  This is a timed, five question, multiple choice quiz. Good luck!</p>
-        <button id="start">Start Quiz Timer</button>
-      </div>   
-    </div>
-</Header>
+  
+<div class="container">
+  <div class="jumbotron">
+    <h1>JavaScript Quiz</h1>      
+    <p>Welcome to the JavaScript Quiz!  This is a timed, five question, multiple choice quiz. Good luck!</p>
+</div>   
 
 <div class="container">
   <div class="card">
+    <div class="card-header">
+      <button id="start">Start Quiz Timer</button>
+      <div id="time"></div>
+    </div>
     <div class="card-body">
       <div class="quiz-container">
         <div id="quiz"></div>
@@ -35,8 +37,7 @@
   <button id="previous">Previous Question</button>
   <button id="next">Next Question</button>
   <button id="submit">Submit Quiz</button>
-  <div id="results"></div>
-  <div id="time"></div>
+  <div id="results"></div>  
 </div>
 
 <script src="./assets/script.js"></script>

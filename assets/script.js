@@ -187,7 +187,7 @@ function endQuiz() {
   timeEl.appendChild("Time is up!");
 }
 
-setTime();
+// setTime();
 
 // display quiz
 buildQuiz();

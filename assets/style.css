@@ -7,16 +7,8 @@
 
 body {
     background-image: url('../assets/dynamic-style.png');
-    /* background-color: lightgrey; */
-    /* font-family:'Montserrat', sans-serif; */
     font-family: 'Baloo Chettan 2', 'Baloo 2', 'Poppins', cursive, sans-serif;
 }
-
-/* .content {
-    width: 75%;
-    display: inline-block;
-    margin-left: 20px;
-} */
 
 .jumbotron{
     background-color: rgb(131, 191, 199);
@@ -55,7 +47,7 @@ body {
     text-align: left;
     display: inline-block;
   }
-  
+
   .answers label{
     display: block;
     margin-bottom: 10px;

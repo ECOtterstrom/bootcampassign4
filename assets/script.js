@@ -1,6 +1,6 @@
 // Pseudo code:
 // Begin quiz screen
-// Display quesiton & answers (create div add question to top of dive and answers under question)
+// Display quesiton & answers (create div add question to top of div and answers under question)
 // Increase score if answer is correct (score variable and score++ if answer is right)
 // Set timer with each question for XX seconds (setInterval (function){build & answers if time runs out go to next question})
 // In between display each answer for XX seconds
@@ -9,6 +9,11 @@
 const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
+const startButton = document.getElementById('start');
+var timeEl = document.querySelector('.time');
+// var mainEl = document.getElementById("main");
+
+var secondsLeft = 60;
 
 const myQuestions = [
     {
@@ -103,7 +108,7 @@ function buildQuiz(){
 };
 
 function showResults(){
-  // gather answer containers from our quiz
+  // gather answer containers from quiz
   const answerContainers = quizContainer.querySelectorAll('.answers');
 
   // keep track of user's answers
@@ -164,7 +169,27 @@ function showPreviousSlide() {
   showSlide(currentSlide - 1);
 }
 
-// display quiz right away
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timeEl.textContent = secondsLeft + " seconds left";
+
+    if(secondsLeft === 0)  {
+      clearInterval(timerInterval);
+      endQuiz();
+    }
+
+  }, 1000);
+}
+
+function endQuiz() {
+  timeEl.textContent = " ";
+  timeEl.appendChild("Time is up!");
+}
+
+setTime();
+
+// display quiz
 buildQuiz();
 
 // Pagination
@@ -176,7 +201,8 @@ let currentSlide = 0;
 showSlide(currentSlide);
 
 // on submit, show results
-submitButton.addEventListener('click', showResults);
+submitButton.addEventListener("click", showResults);
 previousButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
+startButton.addEventListener("click", setTime)
 

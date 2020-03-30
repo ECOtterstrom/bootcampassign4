@@ -16,6 +16,10 @@ body {
     border-radius: black, 10px;
 }
 
+.card-header{
+  display: inline;
+}
+
 .slide{
     position: absolute;
     left: 0px;

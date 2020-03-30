@@ -10,8 +10,8 @@ const quizContainer = document.getElementById('quiz');
 const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
 const startButton = document.getElementById('start');
-var timeEl = document.querySelector('.time');
-// var mainEl = document.getElementById("main");
+var timeEl = document.getElementById('time');
+var header = document.getElementById('card-header');
 
 var secondsLeft = 60;
 
@@ -176,7 +176,7 @@ function setTime() {
 
     if(secondsLeft === 0)  {
       clearInterval(timerInterval);
-      endQuiz();
+      endquiz();
     }
 
   }, 1000);
@@ -184,7 +184,12 @@ function setTime() {
 
 function endQuiz() {
   timeEl.textContent = " ";
-  timeEl.appendChild("Time is up!");
+  
+  var imgEl = document.createElement("img");
+
+  imgEl.setAttribute("src", "assets/stop.jpg");
+  header.appendChild(imgEl);
+
 }
 
 // setTime();
@@ -204,5 +209,5 @@ showSlide(currentSlide);
 submitButton.addEventListener("click", showResults);
 previousButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
-startButton.addEventListener("click", setTime)
+startButton.addEventListener("click", setTime);
 

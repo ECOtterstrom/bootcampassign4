@@ -33,20 +33,17 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="./score.html">Score <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./score.html">Score</a>
+          <a class="nav-link" href="./index.html">Home</a>
         </li>
 
       </ul>
 
     </div>
   </nav>
-
-
   <div class="container">
-
     <div class="jumbotron">
       <h1>JavaScript Quiz</h1>
       <p>Welcome to the JavaScript Quiz! This is a timed, five question, multiple choice quiz. Good luck!</p>
@@ -61,34 +58,14 @@
         <div class="card-body">
           <div class="quiz-container">
 
+
             <div class="wrapper">
-              <div id="start-screen" class="start">
-                <h1>Coding Quiz Challenge</h1>
-                <p>
-                  Try to answer the following code-related questions within the time
-                  limit. Keep in mind that incorrect answers will penalize your
-                  score/time by ten seconds!
-                </p>
-                <button id="start">Start Quiz</button>
-              </div>
+              <h1>Highscores</h1>
+              <ol id="highscores"></ol>
 
-              <div id="questions" class="hide">
-                <h2 id="question-title"></h2>
-                <div id="choices" class="choices"></div>
-              </div>
-
-              <div id="end-screen" class="hide">
-                <h2>All done!</h2>
-                <p>Your final score is <span id="final-score"></span>.</p>
-                <p>
-                  Enter initials: <input type="text" id="initials" max="3" />
-                  <button id="submit">Submit</button>
-                </p>
-              </div>
-
-              <div id="feedback" class="feedback hide"></div>
+              <a href="index.html"><button>Go Back</button></a>
+              <button id="clear">Clear Highscores</button>
             </div>
-
 
 
           </div>
@@ -97,7 +74,7 @@
 
     </div>
 
-    <script src="./assets/index.js"></script>
+    <script src="./assets/score.js"></script>
 
     <footer class="footer">
       <h2>Designed by Erin Otterstrom</h2>

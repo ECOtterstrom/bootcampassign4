@@ -1,6 +1,6 @@
 // Pseudo code:
 // Begin quiz screen
-// Display quesiton & answers (create div add question to top of div and answers under question)
+// Display question & answers (create div add question to top of div and answers under question)
 // Increase score if answer is correct (score variable and score++ if answer is right)
 // Set timer with each question for XX seconds (setInterval (function){build & answers if time runs out go to next question})
 // In between display each answer for XX seconds
@@ -40,7 +40,8 @@ var myQuestions = [
 var currentQuestionIndex = 0;
 var time = myQuestions.length * 15;
 var timerId;
-var score = 0;
+//the time is the score
+//var score = 0;
 
 // variables to reference DOM elements
 var questionsEl = document.getElementById("questions");
@@ -51,14 +52,13 @@ var startBtn = document.getElementById("start");
 var initialsEl = document.getElementById("initials");
 var feedbackEl = document.getElementById("feedback");
 
-
-
-
-
 function start() {
+  //hide start screen
   var startScreenEl = document.getElementById("start-screen");
   startScreenEl.setAttribute("class", "hide");
+  //display questions
   questionsEl.removeAttribute("class");
+  //start timer and display time
   timerId = setInterval(startTime, 1000);
   timerEl.textContent = time;
   getQuestion();
@@ -94,7 +94,6 @@ function getQuestion() {
   });
 }
 
-
 function questionClick(event) {
   // check if user guessed wrong
   var value = event.target.value
@@ -112,14 +111,11 @@ function questionClick(event) {
 
     // play "wrong" sound effect
 
-
     feedbackEl.textContent = "Wrong!";
   } else {
     // play "right" sound effect
 
-
     feedbackEl.textContent = "Correct!";
-
   }
 
   // flash right/wrong feedback on page for half a second
@@ -132,7 +128,10 @@ function questionClick(event) {
   currentQuestionIndex++;
 
   // check if we've run out of questions
-  if (currentQuestionIndex === questions.length) {
+  // console.log(currentQuestionIndex);
+  // console.log(myQuestions.length);
+  // console.log(currentQuestionIndex === myQuestions.length);
+  if (currentQuestionIndex === myQuestions.length) {
     end();
   } else {
     getQuestion();
@@ -148,6 +147,28 @@ function startTime() {
   }
 }
 
+function submitScore() {
+  var highScoreInitials = initialsEl.value;
+  //var highScore = time;
+  var scoreEntry = { highScore: time, highScoreInitials: highScoreInitials };
+
+  //get previous scores
+  if (highScoreInitials !== "") {
+    var highScoreArray =
+      JSON.parse(localStorage.getItem('highScoreArray')) || [];
+  }
+
+
+  //push score entry into high score array
+  highScoreArray.push(scoreEntry);
+
+  //write back into local storage
+  localStorage.setItem('highScoreArray', JSON.stringify(highScoreArray));
+
+  //redirect to high scores page
+  window.location.href = "score.html";
+}
+
 function end() {
   // stop timer
   clearInterval(timerId);
@@ -158,10 +179,20 @@ function end() {
 
   // show final score
   var finalScoreEl = document.getElementById("final-score");
-  finalScoreEl.textContent = score;
+  finalScoreEl.textContent = time;
 
   // hide questions section
   questionsEl.setAttribute("class", "hide");
 }
 
+
+//click to start quiz
 startBtn.onclick = start;
+//click to submit initials
+submitBtn.onclick = submitScore;
+
+initialsEl.onkeyup = function checkforEnter(event) {
+  if (event.key === "Enter") {
+    submitScore();
+  }
+}
